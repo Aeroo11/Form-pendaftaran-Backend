@@ -5,9 +5,13 @@ Aplikasi web untuk pendaftaran mahasiswa baru dengan tampilan modern teknologis.
 ## 📸 Screenshot Aplikasi
 
 <!-- TAMBAHKAN SCREENSHOT APLIKASI DI SINI -->
-![Form Pendaftaran](/static/images/docs/form-pendaftaran.png)
-![Halaman Sukses](/static/images/docs/success-page.png)
-![Panel Admin](/static/images/docs/admin-panel.png)
+Form Pendaftaran
+![image](https://github.com/user-attachments/assets/d8009b4d-f100-460e-bef5-2ef4a611a339)
+![Halaman Sukses]
+![image](https://github.com/user-attachments/assets/4a40fa50-4d33-4d34-bb8b-983ff6f5b28a)
+![Panel Admin]
+![image](https://github.com/user-attachments/assets/1f772332-c30c-479d-abf9-373c03964392)
+
 
 ## 🚀 Teknologi yang Digunakan
 
@@ -116,15 +120,5 @@ python run.py
 └── run.py              # File untuk menjalankan aplikasi
 ```
 
-## 📤 File untuk Push ke GitHub
-
-Berikut daftar file yang harus disertakan saat mendorong proyek ke GitHub:
-
-- Semua file dan folder di atas kecuali:
-  - `venv/`         # Folder virtual environment
-  - `*.pyc`         # File bytecode Python
-  - `__pycache__/`  # Folder cache Python
-  - `.env`          # File konfigurasi lingkungan (jika ada)
-  - `database/`     # Folder yang berisi file SQL setup database
 
 
