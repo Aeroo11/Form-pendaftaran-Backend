@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pendaftar - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .admin-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: var(--light-color);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        th {
+            background-color: rgba(0, 112, 243, 0.2);
+            color: var(--secondary-color);
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .pendaftar-count {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="retro-title" data-text="DAFTAR PENDAFTAR">DAFTAR PENDAFTAR</h1>
+            <h2 class="retro-subtitle">Panel Admin Universitas Teknologi Indonesia</h2>
+        </header>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div class="admin-container retro-form">
+            <div class="admin-header">
+                <a href="/" class="retro-button">Kembali ke Beranda</a>
+                <div class="pendaftar-count">
+                    Total: {{ pendaftar_list|length }} pendaftar
+                </div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Waktu Daftar</th>
+                        <th>Nama Lengkap</th>
+                        <th>Email</th>
+                        <th>No. Telepon</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Jurusan</th>
+                        <th>Asal Sekolah</th>
+                        <th>Nilai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if pendaftar_list %}
+                        {% for pendaftar in pendaftar_list %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ pendaftar.waktu_daftar }}</td>
+                                <td>{{ pendaftar.nama_lengkap }}</td>
+                                <td>{{ pendaftar.email }}</td>
+                                <td>{{ pendaftar.no_telepon }}</td>
+                                <td>{{ pendaftar.jenis_kelamin }}</td>
+                                <td>{{ pendaftar.jurusan_pilihan }}</td>
+                                <td>{{ pendaftar.asal_sekolah }}</td>
+                                <td>{{ pendaftar.nilai_rata_rata }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="9" style="text-align: center;">Belum ada data pendaftar</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+        <footer>
+            <div class="retro-line"></div>
+            <p>© 2023 Universitas Teknologi Indonesia</p>
+        </footer>
+    </div>
+</body>
+</html>

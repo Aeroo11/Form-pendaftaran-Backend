@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Mahasiswa Baru - Tech Edition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="retro-title" data-text="PENDAFTARAN MAHASISWA BARU">PENDAFTARAN MAHASISWA BARU</h1>
+            <h2 class="retro-subtitle">Tahun Akademik 2023/2024</h2>
+        </header>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <form action="/submit" method="post" class="retro-form">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap *</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir *</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telepon">No. Telepon *</label>
+                <input type="tel" id="telepon" name="telepon" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alamat">Alamat *</label>
+                <textarea id="alamat" name="alamat" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Jenis Kelamin *</label>
+                <div class="radio-group">
+                    <input type="radio" id="laki" name="jenis_kelamin" value="Laki-laki" required>
+                    <label for="laki">Laki-laki</label>
+                    <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                    <label for="perempuan">Perempuan</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="jurusan">Jurusan Pilihan *</label>
+                <select id="jurusan" name="jurusan" required>
+                    <option value="">-- Pilih Jurusan --</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Teknik Elektro">Teknik Elektro</option>
+                    <option value="Teknik Mesin">Teknik Mesin</option>
+                    <option value="Manajemen">Manajemen</option>
+                    <option value="Akuntansi">Akuntansi</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="asal_sekolah">Asal Sekolah *</label>
+                <input type="text" id="asal_sekolah" name="asal_sekolah" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nilai">Nilai Rata-rata *</label>
+                <input type="number" id="nilai" name="nilai" min="0" max="100" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="motivasi">Motivasi Mendaftar</label>
+                <textarea id="motivasi" name="motivasi" rows="5"></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button type="reset" class="reset-btn">Reset</button>
+                <button type="submit" class="submit-btn">Daftar Sekarang</button>
+            </div>
+            
+            <p class="form-note">* Wajib diisi</p>
+        </form>
+        
+        <footer>
+            <div class="retro-line"></div>
+            <p>© 2023 Universitas Teknologi Indonesia</p>
+        </footer>
+    </div>
+</body>
+</html>

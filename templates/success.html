@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Berhasil - Tech Edition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="success-card">
+            <h1 class="retro-title" data-text="PENDAFTARAN BERHASIL!">PENDAFTARAN BERHASIL!</h1>
+            <div class="retro-line"></div>
+            
+            <div class="success-content">
+                <p>Halo <strong>{{ nama }}</strong>,</p>
+                <p>Pendaftaran Anda sebagai calon mahasiswa baru telah kami terima.</p>
+                <p>Terima kasih telah mendaftar di Universitas Teknologi Indonesia.</p>
+                <p>Kami akan menghubungi Anda melalui email untuk tahapan selanjutnya.</p>
+            </div>
+            
+            <div class="retro-decoration">
+                <div class="pixel-art"></div>
+            </div>
+            
+            <a href="/" class="retro-button">Kembali ke Beranda</a>
+        </div>
+        
+        <footer>
+            <div class="retro-line"></div>
+            <p>© 2023 Universitas Teknologi Indonesia</p>
+        </footer>
+    </div>
+</body>
+</html>
